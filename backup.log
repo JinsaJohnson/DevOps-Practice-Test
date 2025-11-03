@@ -1,0 +1,92 @@
+[2025-11-03 15:06:38] INFO: Starting backup of /c/Users/user/Documents/test-folder
+tar: Removing leading `/' from member names
+[2025-11-03 15:06:38] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1506.tar.gz
+[2025-11-03 15:06:38] INFO: Checksum file created
+[2025-11-03 15:06:39] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1506.tar.gz: OK
+[2025-11-03 15:06:39] INFO: Checksum verified successfully
+[2025-11-03 15:06:39] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 15:06:39] INFO: Cleaning up old backups...
+[2025-11-03 15:06:39] INFO: Old backups older than 30 days removed.
+[2025-11-03 15:06:39] INFO: Backup process completed.
+[2025-11-03 15:14:07] DRY-RUN: Would backup folder: /c/Users/user/Documents/test-folder
+[2025-11-03 15:14:07] DRY-RUN: Would create archive: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1514.tar.gz
+[2025-11-03 15:14:07] DRY-RUN: Would generate checksum: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1514.tar.gz.sha256
+[2025-11-03 15:14:07] DRY-RUN: Would delete backups older than 30 days from /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups
+[2025-11-03 15:14:07] INFO: Backup process completed.
+[2025-11-03 15:17:38] INFO: Starting backup of /c/Users/user/Documents/test-folder
+tar: Removing leading `/' from member names
+[2025-11-03 15:17:38] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1517.tar.gz
+[2025-11-03 15:17:38] INFO: Checksum file created
+[2025-11-03 15:17:38] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1517.tar.gz: OK
+[2025-11-03 15:17:38] INFO: Checksum verified successfully
+[2025-11-03 15:17:38] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 15:17:38] INFO: Cleaning up old backups...
+[2025-11-03 15:17:39] INFO: Old backups older than 30 days removed.
+[2025-11-03 15:17:39] INFO: Backup process completed.
+[2025-11-03 15:17:47] INFO: Starting backup of /c/Users/user/Documents/test-folder
+tar: Removing leading `/' from member names
+[2025-11-03 15:17:47] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1517.tar.gz
+[2025-11-03 15:17:47] INFO: Checksum file created
+[2025-11-03 15:17:47] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1517.tar.gz: OK
+[2025-11-03 15:17:48] INFO: Checksum verified successfully
+[2025-11-03 15:17:48] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 15:17:48] INFO: Cleaning up old backups...
+[2025-11-03 15:17:48] INFO: Old backups older than 30 days removed.
+[2025-11-03 15:17:48] INFO: Backup process completed.
+[2025-11-03 15:31:41] ERROR: Source folder not found: /c/Users/user/Documents/test-folder./backup.sh
+[2025-11-03 15:31:58] ERROR: Source folder not found: /c/Users/user/Documents/test-folder./backup.sh
+[2025-11-03 15:32:12] ERROR: Backup file not found: backup-2025-11-03-1705.tar.gz
+[2025-11-03 15:34:06] INFO: Restoring backup-2025-11-03-1517.tar.gz to /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/restored_files...
+[2025-11-03 15:34:06] SUCCESS: Backup restored successfully to /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/restored_files
+[2025-11-03 15:36:26] ERROR: Source folder not found: --list
+[2025-11-03 15:41:25] ERROR: Source folder not found: --list
+[2025-11-03 16:17:25] INFO: Sufficient disk space available: 158968MB
+[2025-11-03 16:17:25] INFO: Starting backup of /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test
+tar: Removing leading `/' from member names
+[2025-11-03 16:17:25] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1617.tar.gz
+[2025-11-03 16:17:25] INFO: Checksum file created
+[2025-11-03 16:17:25] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1617.tar.gz: OK
+[2025-11-03 16:17:26] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 16:17:26] INFO: Cleaning up old backups...
+[2025-11-03 16:17:26] INFO: Old backups older than 30 days removed.
+[2025-11-03 16:17:26] INFO: Backup process completed.
+[2025-11-03 16:29:20] INFO: Sufficient disk space available: 158961MB
+[2025-11-03 16:29:20] INFO: Starting backup of /c/Users/user/Documents/test-folder
+[2025-11-03 16:29:20] INFO: Performing incremental backup using snapshot: ./backup.snar
+tar: Removing leading `/' from member names
+[2025-11-03 16:29:20] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+[2025-11-03 16:29:21] INFO: Checksum file created
+[2025-11-03 16:29:21] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz: OK
+[2025-11-03 16:29:21] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 16:29:21] INFO: Cleaning up old backups...
+[2025-11-03 16:29:21] INFO: Old backups older than 30 days removed.
+[2025-11-03 16:29:21] INFO: Backup process completed.
+[2025-11-03 16:29:39] INFO: Sufficient disk space available: 158961MB
+[2025-11-03 16:29:39] INFO: Starting backup of /c/Users/user/Documents/test-folder
+[2025-11-03 16:29:39] INFO: Performing incremental backup using snapshot: ./backup.snar
+tar: Removing leading `/' from member names
+[2025-11-03 16:29:39] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+[2025-11-03 16:29:39] INFO: Checksum file created
+[2025-11-03 16:29:40] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz: OK
+[2025-11-03 16:29:40] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 16:29:40] INFO: Cleaning up old backups...
+[2025-11-03 16:29:40] INFO: Old backups older than 30 days removed.
+[2025-11-03 16:29:40] INFO: Backup process completed.
+[2025-11-03 16:29:58] INFO: Sufficient disk space available: 158964MB
+[2025-11-03 16:29:58] INFO: Starting backup of /c/Users/user/Documents/test-folder
+[2025-11-03 16:29:58] INFO: Performing incremental backup using snapshot: ./backup.snar
+tar: Removing leading `/' from member names
+[2025-11-03 16:29:58] SUCCESS: Backup created: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+[2025-11-03 16:29:58] INFO: Checksum file created
+[2025-11-03 16:29:58] INFO: Verifying checksum...
+/c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz: OK
+[2025-11-03 16:29:58] SUCCESS: Backup test extract successful — archive is not corrupted
+[2025-11-03 16:29:58] INFO: Cleaning up old backups...
+[2025-11-03 16:29:58] INFO: Old backups older than 30 days removed.
+[2025-11-03 16:29:58] INFO: Backup process completed.

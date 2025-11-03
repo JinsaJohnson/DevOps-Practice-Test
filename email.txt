@@ -1,0 +1,28 @@
+-----
+To: admin@example.com
+Subject: ✅ Backup Success
+Time: 2025-11-03 16:17:26
+
+Backup completed successfully.\nFile: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1617.tar.gz
+-----
+-----
+To: admin@example.com
+Subject: ✅ Backup Success
+Time: 2025-11-03 16:29:21
+
+Backup completed successfully.\nFile: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+-----
+-----
+To: admin@example.com
+Subject: ✅ Backup Success
+Time: 2025-11-03 16:29:40
+
+Backup completed successfully.\nFile: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+-----
+-----
+To: admin@example.com
+Subject: ✅ Backup Success
+Time: 2025-11-03 16:29:58
+
+Backup completed successfully.\nFile: /c/Users/user/Documents/DevOps-Practice-Test/bash-scripting_test/Backups/backup-2025-11-03-1629.tar.gz
+-----
