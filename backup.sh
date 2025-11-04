@@ -98,13 +98,12 @@ create_backup() {
 
     log_message "INFO" "Starting backup of $SOURCE_DIR"
     if [ "$INCREMENTAL" = true ]; then
-    log_message "INFO" "Performing incremental backup using snapshot: $SNAPSHOT_FILE"
-    tar --listed-incremental="$SNAPSHOT_FILE" -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"
-else
-    log_message "INFO" "Performing full backup"
-    tar --listed-incremental=/dev/null -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"
-fi
-
+        log_message "INFO" "Performing incremental backup using snapshot: $SNAPSHOT_FILE"
+        tar --listed-incremental="$SNAPSHOT_FILE" -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"
+    else
+        log_message "INFO" "Performing full backup"
+        tar --listed-incremental=/dev/null -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"
+    fi
 
     if [ $? -ne 0 ]; then
         log_message "ERROR" "Backup creation failed!"
@@ -145,11 +144,107 @@ verify_backup() {
     fi
 }
 
-# 🧩 Cleanup old backups
+# 🧩 Cleanup old backups - CORRECTED VERSION WITH PROPER ROTATION
 cleanup_backups() {
-    log_message "INFO" "Cleaning up old backups..."
-    find "$BACKUP_DESTINATION" -name "backup-*.tar.gz" -mtime +30 -type f -exec rm -f {} \;
-    log_message "INFO" "Old backups older than 30 days removed."
+    log_message "INFO" "Cleaning up old backups using rotation policy..."
+    
+    local DAILY_KEEP="${DAILY_KEEP:-7}"
+    local WEEKLY_KEEP="${WEEKLY_KEEP:-4}"
+    local MONTHLY_KEEP="${MONTHLY_KEEP:-3}"
+    
+    cd "$BACKUP_DESTINATION" || {
+        log_message "ERROR" "Cannot access backup destination"
+        return
+    }
+    
+    # Get all backup files sorted by date (newest first)
+    local all_backups=($(ls -t backup-*.tar.gz 2>/dev/null))
+    
+    if [ ${#all_backups[@]} -eq 0 ]; then
+        log_message "INFO" "No backups found to clean up."
+        return
+    fi
+    
+    log_message "INFO" "Found ${#all_backups[@]} total backups"
+    
+    # Arrays to track which backups to keep
+    declare -A keep_backups
+    
+    # 1. Keep last N daily backups (most recent)
+    local count=0
+    log_message "INFO" "Marking daily backups to keep (last $DAILY_KEEP)..."
+    for backup in "${all_backups[@]}"; do
+        if [ $count -lt $DAILY_KEEP ]; then
+            keep_backups["$backup"]="daily"
+            log_message "INFO" "  ✓ Keeping daily backup: $backup"
+            ((count++))
+        else
+            break
+        fi
+    done
+    
+    # 2. Keep last N weekly backups (one per week)
+    local weekly_count=0
+    local last_week=""
+    log_message "INFO" "Marking weekly backups to keep (last $WEEKLY_KEEP weeks)..."
+    for backup in "${all_backups[@]}"; do
+        # Extract date from filename: backup-2024-11-03-1430.tar.gz
+        if [[ $backup =~ backup-([0-9]{4})-([0-9]{2})-([0-9]{2}) ]]; then
+            local year="${BASH_REMATCH[1]}"
+            local month="${BASH_REMATCH[2]}"
+            local day="${BASH_REMATCH[3]}"
+            
+            # Get week number of year
+            local week_num=$(date -d "$year-$month-$day" +%Y-W%V 2>/dev/null)
+            
+            if [ -n "$week_num" ] && [ "$week_num" != "$last_week" ]; then
+                if [ $weekly_count -lt $WEEKLY_KEEP ]; then
+                    # Only mark if not already kept as daily
+                    if [ -z "${keep_backups[$backup]}" ]; then
+                        keep_backups["$backup"]="weekly"
+                        log_message "INFO" "  ✓ Keeping weekly backup: $backup (week $week_num)"
+                    fi
+                    last_week="$week_num"
+                    ((weekly_count++))
+                fi
+            fi
+        fi
+    done
+    
+    # 3. Keep last N monthly backups (one per month)
+    local monthly_count=0
+    local last_month=""
+    log_message "INFO" "Marking monthly backups to keep (last $MONTHLY_KEEP months)..."
+    for backup in "${all_backups[@]}"; do
+        if [[ $backup =~ backup-([0-9]{4})-([0-9]{2}) ]]; then
+            local year_month="${BASH_REMATCH[1]}-${BASH_REMATCH[2]}"
+            
+            if [ "$year_month" != "$last_month" ]; then
+                if [ $monthly_count -lt $MONTHLY_KEEP ]; then
+                    # Only mark if not already kept
+                    if [ -z "${keep_backups[$backup]}" ]; then
+                        keep_backups["$backup"]="monthly"
+                        log_message "INFO" "  ✓ Keeping monthly backup: $backup (month $year_month)"
+                    fi
+                    last_month="$year_month"
+                    ((monthly_count++))
+                fi
+            fi
+        fi
+    done
+    
+    # 4. Delete backups not marked for keeping
+    local deleted_count=0
+    log_message "INFO" "Removing old backups..."
+    for backup in "${all_backups[@]}"; do
+        if [ -z "${keep_backups[$backup]}" ]; then
+            log_message "INFO" "  ✗ Deleting old backup: $backup"
+            rm -f "$backup" "${backup}.sha256"
+            ((deleted_count++))
+        fi
+    done
+    
+    log_message "INFO" "Cleanup complete. Kept ${#keep_backups[@]} backups, deleted $deleted_count old backup(s)."
 }
 
 # 🧩 Restore a backup
@@ -220,8 +315,7 @@ elif [ "$1" == "--restore" ]; then
     fi
     RESTORE_DIR=$4
     restore_backup "$BACKUP_FILE" "$RESTORE_DIR"
-
- elif [ "$1" == "--incremental" ]; then
+elif [ "$1" == "--incremental" ]; then
     SOURCE_DIR=$2
     INCREMENTAL=true
     create_backup "$SOURCE_DIR" false
