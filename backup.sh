@@ -4,20 +4,20 @@
 # Automated Backup System
 # ============================================
 
-# 🧩 Global variables
+#  Global variables
 LOG_FILE="./backup.log"
 EMAIL_FILE="./email.txt"
 LOCK_FILE="/tmp/backup.lock"
 BACKUP_PATH=""  # Will be set during backup creation
 
-# 🧩 Function for logging
+#  Function for logging
 log_message() {
     local LEVEL=$1
     local MESSAGE=$2
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $LEVEL: $MESSAGE" | tee -a "$LOG_FILE"
 }
 
-# 🧩 Load configuration file or use defaults
+#  Load configuration file or use defaults
 if [ -f ./backup.config ]; then
     source ./backup.config
     log_message "INFO" "Configuration loaded from backup.config"
@@ -36,7 +36,7 @@ else
     SNAPSHOT_FILE="./backup.snar"
 fi
 
-# 🧩 Simulate email notification
+#  Simulate email notification
 send_email() {
     local SUBJECT=$1
     local BODY=$2
@@ -49,7 +49,7 @@ send_email() {
     echo "-----" >> "$EMAIL_FILE"
 }
 
-# 🧩 Acquire lock
+#  Acquire lock
 acquire_lock() {
     if [ -f "$LOCK_FILE" ]; then
         log_message "ERROR" "Another backup process is already running!"
@@ -60,7 +60,7 @@ acquire_lock() {
     log_message "INFO" "Lock acquired"
 }
 
-# 🧩 Release lock
+#  Release lock
 release_lock() {
     if [ -f "$LOCK_FILE" ]; then
         rm -f "$LOCK_FILE"
@@ -235,11 +235,11 @@ verify_backup() {
     log_message "INFO" "Testing archive integrity..."
     if tar -tzf "$BACKUP_FILE" &> /dev/null; then
         log_message "SUCCESS" "Backup verification complete - archive is valid"
-        send_email "✅ Backup Success" "Backup completed and verified successfully.\nFile: $BACKUP_FILE\nSize: $(du -h "$BACKUP_FILE" 2>/dev/null | cut -f1)"
+        send_email " Backup Success" "Backup completed and verified successfully.\nFile: $BACKUP_FILE\nSize: $(du -h "$BACKUP_FILE" 2>/dev/null | cut -f1)"
         echo "VERIFICATION: SUCCESS"
     else
         log_message "ERROR" "Archive extraction test FAILED - backup is corrupted"
-        send_email "❌ Backup Failed - Corrupted Archive" "Archive failed extraction test: $BACKUP_FILE"
+        send_email " Backup Failed - Corrupted Archive" "Archive failed extraction test: $BACKUP_FILE"
         echo "VERIFICATION: FAILED"
         echo "Error: Archive is corrupted"
         exit 1
@@ -350,7 +350,7 @@ cleanup_backups() {
     log_message "INFO" "Cleanup complete. Kept ${#keep_backups[@]} backups, deleted $deleted_count old backup(s)"
 }
 
-# 🧩 Restore a backup
+#  Restore a backup
 restore_backup() {
     local BACKUP_FILE=$1
     local RESTORE_DIR=$2
@@ -361,7 +361,7 @@ restore_backup() {
             BACKUP_FILE="$BACKUP_DESTINATION/$BACKUP_FILE"
         else
             log_message "ERROR" "Backup file not found: $BACKUP_FILE"
-            send_email "❌ Restore Failed" "Backup file not found: $BACKUP_FILE"
+            send_email " Restore Failed" "Backup file not found: $BACKUP_FILE"
             echo "Error: Backup file not found"
             exit 1
         fi
@@ -375,7 +375,7 @@ restore_backup() {
             log_message "INFO" "Backup integrity verified"
         else
             log_message "ERROR" "Backup file is corrupted (checksum verification failed)"
-            send_email "❌ Restore Failed" "Backup file is corrupted: $BACKUP_FILE"
+            send_email " Restore Failed" "Backup file is corrupted: $BACKUP_FILE"
             echo "Error: Backup file is corrupted"
             exit 1
         fi
@@ -386,7 +386,7 @@ restore_backup() {
     # Create restore directory
     if ! mkdir -p "$RESTORE_DIR"; then
         log_message "ERROR" "Cannot create restore directory: $RESTORE_DIR"
-        send_email "❌ Restore Failed" "Cannot create restore directory: $RESTORE_DIR"
+        send_email " Restore Failed" "Cannot create restore directory: $RESTORE_DIR"
         echo "Error: Cannot create restore directory"
         exit 1
     fi
@@ -394,11 +394,11 @@ restore_backup() {
     log_message "INFO" "Restoring $BACKUP_FILE to $RESTORE_DIR..."
     if tar -xzf "$BACKUP_FILE" -C "$RESTORE_DIR" 2>>"$LOG_FILE"; then
         log_message "SUCCESS" "Backup restored successfully to $RESTORE_DIR"
-        send_email "✅ Restore Successful" "Backup restored successfully.\nFrom: $BACKUP_FILE\nTo: $RESTORE_DIR"
+        send_email " Restore Successful" "Backup restored successfully.\nFrom: $BACKUP_FILE\nTo: $RESTORE_DIR"
         echo "Restore completed successfully"
     else
         log_message "ERROR" "Backup restore failed"
-        send_email "❌ Restore Failed" "Error occurred while restoring $BACKUP_FILE"
+        send_email " Restore Failed" "Error occurred while restoring $BACKUP_FILE"
         echo "Error: Restore failed"
         exit 1
     fi

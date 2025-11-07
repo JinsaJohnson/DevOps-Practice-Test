@@ -1,8 +1,0 @@
-# Ignore everything
-*
-
-# Except these essential files
-!backup.sh
-!backup.config
-!README.md
-!.gitignore

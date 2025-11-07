@@ -1,0 +1,24 @@
+[2025-11-07 09:05:11] INFO: Found 1 total backups
+[2025-11-07 09:05:11] INFO: Marked 1 daily backups to keep
+[2025-11-07 09:05:11] INFO: Marked 0 additional weekly backups to keep
+[2025-11-07 09:05:11] INFO: Marked 0 additional monthly backups to keep
+[2025-11-07 09:05:11] INFO: Cleanup complete. Kept 1 backups, deleted 0 old backup(s)
+[2025-11-07 09:05:12] INFO: Backup process completed successfully
+[2025-11-07 09:05:12] INFO: ============================================
+[2025-11-07 09:05:12] INFO: Lock released
+[2025-11-07 11:06:02] INFO: Found 2 total backups
+[2025-11-07 11:06:02] INFO: Marked 2 daily backups to keep
+[2025-11-07 11:06:02] INFO: Marked 0 additional weekly backups to keep
+[2025-11-07 11:06:02] INFO: Marked 0 additional monthly backups to keep
+[2025-11-07 11:06:02] INFO: Cleanup complete. Kept 2 backups, deleted 0 old backup(s)
+[2025-11-07 11:06:02] INFO: Backup process completed successfully
+[2025-11-07 11:06:02] INFO: ============================================
+[2025-11-07 11:06:02] INFO: Lock released
+[2025-11-07 11:20:45] INFO: Found 3 total backups
+[2025-11-07 11:20:45] INFO: Marked 3 daily backups to keep
+[2025-11-07 11:20:45] INFO: Marked 0 additional weekly backups to keep
+[2025-11-07 11:20:45] INFO: Marked 0 additional monthly backups to keep
+[2025-11-07 11:20:45] INFO: Cleanup complete. Kept 3 backups, deleted 0 old backup(s)
+[2025-11-07 11:20:45] INFO: Backup process completed successfully
+[2025-11-07 11:20:45] INFO: ============================================
+[2025-11-07 11:20:45] INFO: Lock released

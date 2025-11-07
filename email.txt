@@ -1,0 +1,84 @@
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ✅ Backup Success
+Time: 2025-11-07 09:05:11
+
+Backup completed and verified successfully.\nFile: ./backups/backup-2025-11-07-0905.tar.gz\nSize: 1.0K
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ✅ Restore Successful
+Time: 2025-11-07 09:08:34
+
+Backup restored successfully.\nFrom: ./backups/backup-2025-11-07-0905.tar.gz\nTo: restored
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject:  Backup Success
+Time: 2025-11-07 11:06:01
+
+Backup completed and verified successfully.\nFile: ./backups/backup-2025-11-07-1105.tar.gz\nSize: 1.0K
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ❌ Backup Failed - Source Missing
+Time: 2025-11-07 11:16:41
+
+Source folder not found: /c/Users/user/Documents/test_backup-folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ❌ Backup Failed - Source Missing
+Time: 2025-11-07 11:16:55
+
+Source folder not found: Documents/test_backup-folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ❌ Backup Failed - Source Missing
+Time: 2025-11-07 11:18:27
+
+Source folder not found: /c/Users/user/Documents/test_folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ❌ Backup Failed - Source Missing
+Time: 2025-11-07 11:20:05
+
+Source folder not found: test_folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject: ❌ Backup Failed - Source Missing
+Time: 2025-11-07 11:20:34
+
+Source folder not found: test_backup-folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject:  Backup Success
+Time: 2025-11-07 11:20:45
+
+Backup completed and verified successfully.\nFile: ./backups/backup-2025-11-07-1120.tar.gz\nSize: 1.0K
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject:  Restore Failed
+Time: 2025-11-07 11:36:43
+
+Backup file not found: restoredtest-backup-folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject:  Restore Failed
+Time: 2025-11-07 11:37:44
+
+Backup file not found: test-backup-folder
+-----
+-----
+To: jinsajohnson2000@gmail.com
+Subject:  Restore Successful
+Time: 2025-11-07 11:38:38
+
+Backup restored successfully.\nFrom: ./backups/backup-2025-11-07-1120.tar.gz\nTo: restorenew
+-----

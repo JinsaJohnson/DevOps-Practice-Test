@@ -1,0 +1,173 @@
+[2025-11-07 09:05:09] INFO: Configuration loaded from backup.config
+[2025-11-07 09:05:10] INFO: ============================================
+[2025-11-07 09:05:10] INFO: Backup script started
+[2025-11-07 09:05:10] INFO: ============================================
+[2025-11-07 09:05:10] INFO: Lock acquired
+[2025-11-07 09:05:10] INFO: Backup destination doesn't exist, creating: ./backups
+[2025-11-07 09:05:10] INFO: Sufficient disk space available: 154655MB
+[2025-11-07 09:05:10] INFO: Starting backup of test-backup-folder/
+[2025-11-07 09:05:10] INFO: Performing full backup
+[2025-11-07 09:05:11] SUCCESS: Backup created: ./backups/backup-2025-11-07-0905.tar.gz
+[2025-11-07 09:05:11] INFO: Checksum file created
+[2025-11-07 09:05:11] INFO: Verifying backup integrity...
+[2025-11-07 09:05:11] INFO: Verifying checksum...
+./backups/backup-2025-11-07-0905.tar.gz: OK
+[2025-11-07 09:05:11] SUCCESS: Checksum verified successfully
+[2025-11-07 09:05:11] INFO: Testing archive integrity...
+[2025-11-07 09:05:11] SUCCESS: Backup verification complete - archive is valid
+[2025-11-07 09:05:11] INFO: Starting cleanup of old backups (retention: 7 daily, 4 weekly, 3 monthly)...
+[2025-11-07 09:08:33] INFO: Configuration loaded from backup.config
+[2025-11-07 09:08:33] INFO: ============================================
+[2025-11-07 09:08:33] INFO: Backup script started
+[2025-11-07 09:08:34] INFO: ============================================
+[2025-11-07 09:08:34] INFO: Lock acquired
+[2025-11-07 09:08:34] INFO: Verifying backup integrity before restore...
+./backups/backup-2025-11-07-0905.tar.gz: OK
+[2025-11-07 09:08:34] INFO: Backup integrity verified
+[2025-11-07 09:08:34] INFO: Restoring ./backups/backup-2025-11-07-0905.tar.gz to restored...
+[2025-11-07 09:08:34] SUCCESS: Backup restored successfully to restored
+[2025-11-07 09:08:34] INFO: Backup process completed successfully
+[2025-11-07 09:08:34] INFO: ============================================
+[2025-11-07 09:08:34] INFO: Lock released
+[2025-11-07 10:58:07] INFO: Configuration loaded from backup.config
+[2025-11-07 10:58:07] INFO: ============================================
+[2025-11-07 10:58:07] INFO: Backup script started
+[2025-11-07 10:58:07] INFO: ============================================
+[2025-11-07 11:00:49] INFO: Configuration loaded from backup.config
+[2025-11-07 11:00:49] INFO: ============================================
+[2025-11-07 11:00:49] INFO: Backup script started
+[2025-11-07 11:00:49] INFO: ============================================
+[2025-11-07 11:00:49] INFO: Lock acquired
+[2025-11-07 11:00:49] INFO: Lock released
+[2025-11-07 11:05:59] INFO: Configuration loaded from backup.config
+[2025-11-07 11:05:59] INFO: ============================================
+[2025-11-07 11:05:59] INFO: Backup script started
+[2025-11-07 11:05:59] INFO: ============================================
+[2025-11-07 11:05:59] INFO: Lock acquired
+[2025-11-07 11:05:59] INFO: Sufficient disk space available: 156849MB
+[2025-11-07 11:06:00] INFO: Starting backup of test-backup-folder
+[2025-11-07 11:06:00] INFO: Performing full backup
+[2025-11-07 11:06:00] SUCCESS: Backup created: ./backups/backup-2025-11-07-1105.tar.gz
+[2025-11-07 11:06:01] INFO: Checksum file created
+[2025-11-07 11:06:01] INFO: Verifying backup integrity...
+[2025-11-07 11:06:01] INFO: Verifying checksum...
+./backups/backup-2025-11-07-1105.tar.gz: OK
+[2025-11-07 11:06:01] SUCCESS: Checksum verified successfully
+[2025-11-07 11:06:01] INFO: Testing archive integrity...
+[2025-11-07 11:06:01] SUCCESS: Backup verification complete - archive is valid
+[2025-11-07 11:06:01] INFO: Starting cleanup of old backups (retention: 7 daily, 4 weekly, 3 monthly)...
+[2025-11-07 11:06:06] INFO: Configuration loaded from backup.config
+[2025-11-07 11:06:06] INFO: ============================================
+[2025-11-07 11:06:06] INFO: Backup script started
+[2025-11-07 11:06:06] INFO: ============================================
+[2025-11-07 11:06:06] INFO: Lock acquired
+[2025-11-07 11:06:06] INFO: Lock released
+[2025-11-07 11:08:45] INFO: Configuration loaded from backup.config
+[2025-11-07 11:08:45] INFO: ============================================
+[2025-11-07 11:08:45] INFO: Backup script started
+[2025-11-07 11:08:45] INFO: ============================================
+[2025-11-07 11:08:45] INFO: Lock acquired
+[2025-11-07 11:08:45] INFO: Lock released
+[2025-11-07 11:10:08] INFO: Configuration loaded from backup.config
+[2025-11-07 11:10:08] INFO: ============================================
+[2025-11-07 11:10:08] INFO: Backup script started
+[2025-11-07 11:10:08] INFO: ============================================
+[2025-11-07 11:10:08] INFO: Lock acquired
+[2025-11-07 11:10:08] INFO: Lock released
+[2025-11-07 11:11:16] INFO: Configuration loaded from backup.config
+[2025-11-07 11:11:16] INFO: ============================================
+[2025-11-07 11:11:16] INFO: Backup script started
+[2025-11-07 11:11:16] INFO: ============================================
+[2025-11-07 11:11:16] INFO: Lock acquired
+[2025-11-07 11:11:17] INFO: Lock released
+[2025-11-07 11:14:10] INFO: Configuration loaded from backup.config
+[2025-11-07 11:14:10] INFO: ============================================
+[2025-11-07 11:14:10] INFO: Backup script started
+[2025-11-07 11:14:10] INFO: ============================================
+[2025-11-07 11:14:11] INFO: Lock acquired
+[2025-11-07 11:14:11] INFO: Lock released
+[2025-11-07 11:16:41] INFO: Configuration loaded from backup.config
+[2025-11-07 11:16:41] INFO: ============================================
+[2025-11-07 11:16:41] INFO: Backup script started
+[2025-11-07 11:16:41] INFO: ============================================
+[2025-11-07 11:16:41] INFO: Lock acquired
+[2025-11-07 11:16:41] ERROR: Source folder not found: /c/Users/user/Documents/test_backup-folder
+[2025-11-07 11:16:41] INFO: Lock released
+[2025-11-07 11:16:55] INFO: Configuration loaded from backup.config
+[2025-11-07 11:16:55] INFO: ============================================
+[2025-11-07 11:16:55] INFO: Backup script started
+[2025-11-07 11:16:55] INFO: ============================================
+[2025-11-07 11:16:55] INFO: Lock acquired
+[2025-11-07 11:16:55] ERROR: Source folder not found: Documents/test_backup-folder
+[2025-11-07 11:16:55] INFO: Lock released
+[2025-11-07 11:18:27] INFO: Configuration loaded from backup.config
+[2025-11-07 11:18:27] INFO: ============================================
+[2025-11-07 11:18:27] INFO: Backup script started
+[2025-11-07 11:18:27] INFO: ============================================
+[2025-11-07 11:18:27] INFO: Lock acquired
+[2025-11-07 11:18:27] ERROR: Source folder not found: /c/Users/user/Documents/test_folder
+[2025-11-07 11:18:27] INFO: Lock released
+[2025-11-07 11:20:05] INFO: Configuration loaded from backup.config
+[2025-11-07 11:20:05] INFO: ============================================
+[2025-11-07 11:20:05] INFO: Backup script started
+[2025-11-07 11:20:05] INFO: ============================================
+[2025-11-07 11:20:05] INFO: Lock acquired
+[2025-11-07 11:20:05] ERROR: Source folder not found: test_folder
+[2025-11-07 11:20:05] INFO: Lock released
+[2025-11-07 11:20:33] INFO: Configuration loaded from backup.config
+[2025-11-07 11:20:33] INFO: ============================================
+[2025-11-07 11:20:33] INFO: Backup script started
+[2025-11-07 11:20:33] INFO: ============================================
+[2025-11-07 11:20:33] INFO: Lock acquired
+[2025-11-07 11:20:34] ERROR: Source folder not found: test_backup-folder
+[2025-11-07 11:20:34] INFO: Lock released
+[2025-11-07 11:20:43] INFO: Configuration loaded from backup.config
+[2025-11-07 11:20:43] INFO: ============================================
+[2025-11-07 11:20:43] INFO: Backup script started
+[2025-11-07 11:20:43] INFO: ============================================
+[2025-11-07 11:20:43] INFO: Lock acquired
+[2025-11-07 11:20:44] INFO: Sufficient disk space available: 156850MB
+[2025-11-07 11:20:44] INFO: Starting backup of test-backup-folder
+[2025-11-07 11:20:44] INFO: Performing full backup
+[2025-11-07 11:20:44] SUCCESS: Backup created: ./backups/backup-2025-11-07-1120.tar.gz
+[2025-11-07 11:20:44] INFO: Checksum file created
+[2025-11-07 11:20:44] INFO: Verifying backup integrity...
+[2025-11-07 11:20:44] INFO: Verifying checksum...
+./backups/backup-2025-11-07-1120.tar.gz: OK
+[2025-11-07 11:20:44] SUCCESS: Checksum verified successfully
+[2025-11-07 11:20:44] INFO: Testing archive integrity...
+[2025-11-07 11:20:44] SUCCESS: Backup verification complete - archive is valid
+[2025-11-07 11:20:45] INFO: Starting cleanup of old backups (retention: 7 daily, 4 weekly, 3 monthly)...
+[2025-11-07 11:21:55] INFO: Configuration loaded from backup.config
+[2025-11-07 11:21:55] INFO: ============================================
+[2025-11-07 11:21:55] INFO: Backup script started
+[2025-11-07 11:21:55] INFO: ============================================
+[2025-11-07 11:21:55] INFO: Lock acquired
+[2025-11-07 11:21:56] INFO: Lock released
+[2025-11-07 11:36:43] INFO: Configuration loaded from backup.config
+[2025-11-07 11:36:43] INFO: ============================================
+[2025-11-07 11:36:43] INFO: Backup script started
+[2025-11-07 11:36:43] INFO: ============================================
+[2025-11-07 11:36:43] INFO: Lock acquired
+[2025-11-07 11:36:43] ERROR: Backup file not found: restoredtest-backup-folder
+[2025-11-07 11:36:43] INFO: Lock released
+[2025-11-07 11:37:44] INFO: Configuration loaded from backup.config
+[2025-11-07 11:37:44] INFO: ============================================
+[2025-11-07 11:37:44] INFO: Backup script started
+[2025-11-07 11:37:44] INFO: ============================================
+[2025-11-07 11:37:44] INFO: Lock acquired
+[2025-11-07 11:37:44] ERROR: Backup file not found: test-backup-folder
+[2025-11-07 11:37:45] INFO: Lock released
+[2025-11-07 11:38:37] INFO: Configuration loaded from backup.config
+[2025-11-07 11:38:38] INFO: ============================================
+[2025-11-07 11:38:38] INFO: Backup script started
+[2025-11-07 11:38:38] INFO: ============================================
+[2025-11-07 11:38:38] INFO: Lock acquired
+[2025-11-07 11:38:38] INFO: Verifying backup integrity before restore...
+./backups/backup-2025-11-07-1120.tar.gz: OK
+[2025-11-07 11:38:38] INFO: Backup integrity verified
+[2025-11-07 11:38:38] INFO: Restoring ./backups/backup-2025-11-07-1120.tar.gz to restorenew...
+[2025-11-07 11:38:38] SUCCESS: Backup restored successfully to restorenew
+[2025-11-07 11:38:38] INFO: Backup process completed successfully
+[2025-11-07 11:38:38] INFO: ============================================
+[2025-11-07 11:38:38] INFO: Lock released

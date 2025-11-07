@@ -722,8 +722,8 @@ This project is released under the MIT License. Feel free to use, modify, and di
 ## 👤 Author
 
 **Your Name**  
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [JinsaJohnson](https://github.com/JinsaJohnson/DevOps-Practice-Test.git)
+- Email: jinsajohnson2000@gmail.com
 
 ---
 
