@@ -68,12 +68,12 @@ release_lock() {
     fi
 }
 
-# 🧩 Cleanup on normal exit
+#  Cleanup on normal exit
 cleanup_on_exit() {
     release_lock
 }
 
-# 🧩 Cleanup on interruption (Ctrl+C, kill, etc.)
+#  Cleanup on interruption (Ctrl+C, kill, etc.)
 cleanup_on_interrupt() {
     echo ""  # New line after ^C
     log_message "WARN" "Backup interrupted! Cleaning up..."
@@ -92,7 +92,7 @@ cleanup_on_interrupt() {
 trap cleanup_on_interrupt INT TERM
 trap cleanup_on_exit EXIT
 
-# 🧩 Check disk space before backup
+#  Check disk space before backup
 check_space() {
     local required_space_mb="${MIN_SPACE_MB:-100}"
     local available_space_mb
@@ -105,7 +105,7 @@ check_space() {
 
     if (( available_space_mb < required_space_mb )); then
         log_message "ERROR" "Not enough disk space. Required: ${required_space_mb}MB, Available: ${available_space_mb}MB"
-        send_email "❌ Backup Failed - Low Disk Space" "Required: ${required_space_mb}MB, Available: ${available_space_mb}MB"
+        send_email " Backup Failed - Low Disk Space" "Required: ${required_space_mb}MB, Available: ${available_space_mb}MB"
         echo "Error: Not enough disk space for backup"
         exit 1
     else
@@ -113,7 +113,7 @@ check_space() {
     fi
 }
 
-# 🧩 Create backup
+#  Create backup
 create_backup() {
     local SOURCE_DIR=$1
     local DRY_RUN=$2
@@ -121,7 +121,7 @@ create_backup() {
     # Validate source directory exists
     if [ ! -d "$SOURCE_DIR" ]; then
         log_message "ERROR" "Source folder not found: $SOURCE_DIR"
-        send_email "❌ Backup Failed - Source Missing" "Source folder not found: $SOURCE_DIR"
+        send_email " Backup Failed - Source Missing" "Source folder not found: $SOURCE_DIR"
         echo "Error: Source folder not found"
         exit 1
     fi
@@ -129,7 +129,7 @@ create_backup() {
     # Validate source directory is readable
     if [ ! -r "$SOURCE_DIR" ]; then
         log_message "ERROR" "Cannot read folder, permission denied: $SOURCE_DIR"
-        send_email "❌ Backup Failed - Permission Denied" "Cannot read folder: $SOURCE_DIR"
+        send_email " Backup Failed - Permission Denied" "Cannot read folder: $SOURCE_DIR"
         echo "Error: Cannot read folder, permission denied"
         exit 1
     fi
@@ -139,7 +139,7 @@ create_backup() {
         log_message "INFO" "Backup destination doesn't exist, creating: $BACKUP_DESTINATION"
         if ! mkdir -p "$BACKUP_DESTINATION"; then
             log_message "ERROR" "Cannot create backup destination: $BACKUP_DESTINATION"
-            send_email "❌ Backup Failed" "Cannot create backup directory: $BACKUP_DESTINATION"
+            send_email " Backup Failed" "Cannot create backup directory: $BACKUP_DESTINATION"
             echo "Error: Cannot create backup destination"
             exit 1
         fi
@@ -169,7 +169,7 @@ create_backup() {
         log_message "INFO" "DRY RUN: Would exclude patterns: $EXCLUDE_PATTERNS"
         log_message "INFO" "DRY RUN: Would verify backup integrity"
         log_message "INFO" "DRY RUN: Would run cleanup of old backups"
-        send_email "🧪 Backup Dry Run" "Dry run completed for folder: $SOURCE_DIR"
+        send_email " Backup Dry Run" "Dry run completed for folder: $SOURCE_DIR"
         echo "DRY RUN: Would create backup: $BACKUP_NAME"
         exit 0
     fi
@@ -181,7 +181,7 @@ create_backup() {
         log_message "INFO" "Performing incremental backup using snapshot: $SNAPSHOT_FILE"
         if ! tar --listed-incremental="$SNAPSHOT_FILE" -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"; then
             log_message "ERROR" "Incremental backup creation failed!"
-            send_email "❌ Backup Failed" "Incremental backup creation failed for folder: $SOURCE_DIR"
+            send_email " Backup Failed" "Incremental backup creation failed for folder: $SOURCE_DIR"
             echo "Error: Backup creation failed"
             rm -f "$BACKUP_PATH"
             exit 1
@@ -190,7 +190,7 @@ create_backup() {
         log_message "INFO" "Performing full backup"
         if ! tar -czf "$BACKUP_PATH" "${EXCLUDE_ARGS[@]}" "$SOURCE_DIR" 2>>"$LOG_FILE"; then
             log_message "ERROR" "Backup creation failed!"
-            send_email "❌ Backup Failed" "Backup creation failed for folder: $SOURCE_DIR"
+            send_email " Backup Failed" "Backup creation failed for folder: $SOURCE_DIR"
             echo "Error: Backup creation failed"
             rm -f "$BACKUP_PATH"
             exit 1
@@ -202,7 +202,7 @@ create_backup() {
     # Generate checksum
     if ! sha256sum "$BACKUP_PATH" > "$BACKUP_PATH.sha256" 2>>"$LOG_FILE"; then
         log_message "ERROR" "Failed to create checksum file"
-        send_email "❌ Backup Failed" "Checksum generation failed"
+        send_email " Backup Failed" "Checksum generation failed"
         echo "Error: Checksum generation failed"
         exit 1
     fi
@@ -212,7 +212,7 @@ create_backup() {
     verify_backup "$BACKUP_PATH"
 }
 
-# 🧩 Verify backup integrity
+#  Verify backup integrity
 verify_backup() {
     local BACKUP_FILE=$1
     local CHECKSUM_FILE="${BACKUP_FILE}.sha256"
@@ -225,7 +225,7 @@ verify_backup() {
         log_message "SUCCESS" "Checksum verified successfully"
     else
         log_message "ERROR" "Checksum verification FAILED!"
-        send_email "❌ Backup Failed - Checksum Mismatch" "Checksum verification failed for $BACKUP_FILE"
+        send_email " Backup Failed - Checksum Mismatch" "Checksum verification failed for $BACKUP_FILE"
         echo "VERIFICATION: FAILED"
         echo "Error: Checksum verification failed"
         exit 1
@@ -246,7 +246,7 @@ verify_backup() {
     fi
 }
 
-# 🧩 Cleanup old backups with rotation policy
+#  Cleanup old backups with rotation policy
 cleanup_backups() {
     log_message "INFO" "Starting cleanup of old backups (retention: ${DAILY_KEEP} daily, ${WEEKLY_KEEP} weekly, ${MONTHLY_KEEP} monthly)..."
     
@@ -404,7 +404,7 @@ restore_backup() {
     fi
 }
 
-# 🧩 List all available backups
+#  List all available backups
 list_backups() {
     echo "Available backups in $BACKUP_DESTINATION:"
     echo "================================================================"
